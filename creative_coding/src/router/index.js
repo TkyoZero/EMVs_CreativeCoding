@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/demo',
       name: 'demo',
       component: () => import('../components/DemoSketch.vue'),
+    },
+    {
+      path: '/randomball',
+      name: 'randomball',
+      component: () => import('../components/RandomBallSketch.vue'),
     }
   ],
 })

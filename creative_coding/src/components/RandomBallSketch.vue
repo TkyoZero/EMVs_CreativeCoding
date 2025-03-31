@@ -4,9 +4,14 @@
  
 <script>
 import p5 from 'p5';
- 
+
+const col = 10
+const row = 10
+const Gridsize = 50
+const color = ["#ECECEC", "#656262", "#110000"];
+
 export default {
-    name: 'DemoP5Canvas',
+    name: 'RandomBallCanvas',
     mounted() {
         this.createCanvas();
     },
@@ -23,17 +28,17 @@ export default {
             p5.setup = () => {
                 p5.createCanvas(500, 500);
                 p5.background(255);
+
+                for (let i = 0; i < col; i++) {
+                for (let j = 0; j < row; j++) {
+                    p5.fill(color[p5.random([0, 1, 2])]);
+                    p5.noStroke();
+                    p5.circle(i * Gridsize, j * Gridsize, p5.random(15, 60));
+                }
+                }
             };
- 
-            p5.draw = () => {
-                p5.noFill()
-                p5.square(p5.mouseX, p5.mouseY, p5.random(10, 200));
-            };
- 
-            p5.mousePressed = () => {
-                console.log("Mouse pressed");
-            }
         }
     }
 };
 </script>
+ 
