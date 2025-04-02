@@ -1,10 +1,10 @@
 <template>
-    <div ref="canvasContainer"></div>
+<div ref="canvasContainer"></div>
 </template>
- 
+
 <script>
 import p5 from 'p5';
- 
+
 export default {
     name: 'DemoP5Canvas',
     mounted() {
@@ -24,12 +24,12 @@ export default {
                 p5.createCanvas(500, 500);
                 p5.background(255);
             };
- 
+
             p5.draw = () => {
-                p5.noFill()
+                p5.noFill();
                 p5.square(p5.mouseX, p5.mouseY, p5.random(10, 200));
             };
- 
+
             p5.mousePressed = () => {
                 console.log("Mouse pressed");
             }

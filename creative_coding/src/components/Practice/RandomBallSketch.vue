@@ -1,7 +1,7 @@
 <template>
-    <div ref="canvasContainer"></div>
+<div ref="canvasContainer"></div>
 </template>
- 
+
 <script>
 import p5 from 'p5';
 
@@ -30,15 +30,14 @@ export default {
                 p5.background(255);
 
                 for (let i = 0; i < col; i++) {
-                for (let j = 0; j < row; j++) {
-                    p5.fill(color[p5.random([0, 1, 2])]);
-                    p5.noStroke();
-                    p5.circle(i * Gridsize, j * Gridsize, p5.random(15, 60));
-                }
+                    for (let j = 0; j < row; j++) {
+                        p5.fill(color[p5.random([0, 1, 2])]);
+                        p5.noStroke();
+                        p5.circle(i * Gridsize, j * Gridsize, p5.random(15, 60));
+                    }
                 }
             };
         }
     }
 };
 </script>
- 

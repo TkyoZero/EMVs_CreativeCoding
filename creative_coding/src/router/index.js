@@ -12,22 +12,27 @@ const router = createRouter({
     {
       path: '/practice/demo',
       name: 'demo',
-      component: () => import('../components/Practice/DemoSketch.vue'),
+      component: () => import('../components/practice/DemoSketch.vue'),
     },
     {
-      path: '/practice/randomball',
-      name: 'randomball',
-      component: () => import('../components/Practice/RandomBallSketch.vue'),
+      path: '/practice/random-ball',
+      name: 'random-ball',
+      component: () => import('../components/practice/RandomBallSketch.vue'),
     },
     {
       path: '/practice/loading',
       name: 'loading',
-      component: () => import('../components/Practice/LoadingSketch.vue'),
+      component: () => import('../components/practice/LoadingSketch.vue'),
     },
     {
-      path: '/practice/savestlye',
-      name: 'savestlye',
-      component: () => import('../components/Practice/SaveStyleSketch.vue'),
+      path: '/practice/save-stlye',
+      name: 'save-stlye',
+      component: () => import('../components/practice/SaveStyleSketch.vue'),
+    },
+    {
+      path: '/task/image-filter',
+      name: 'image-filter',
+      component: () => import('../components/task/imageManipulation1/ImageFilterSketch.vue'),
     }
   ],
 })
