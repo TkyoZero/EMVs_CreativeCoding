@@ -17,7 +17,7 @@ export default {
     },
     beforeDestroy() {
         if (this.p5) {
-            this.p.remove();
+            this.p5.remove();
         }
     },
     methods: {

@@ -1,12 +1,12 @@
 <template>
     <div ref="canvasContainer"></div>
 </template>
- 
+
 <script>
 import p5 from 'p5';
- 
+
 export default {
-    name: 'DemoP5Canvas',
+    name: 'SaveStyleSketch',
     mounted() {
         this.createCanvas();
     },
@@ -23,17 +23,23 @@ export default {
             p5.setup = () => {
                 p5.createCanvas(500, 500);
                 p5.background(255);
+
+                p5.ellipse(0, 50, 33, 33);
+
+                p5.push(); // Start a new drawing state
+                p5.translate(50, 0);
+                p5.strokeWeight(10);
+                p5.fill(204, 153, 0);
+                p5.ellipse(33, 50, 33, 33);
+                p5.pop(); // Restore original state
+
+                p5.ellipse(100, 50, 33, 33);
+
+                p5.translate(0, 50);
+
+                p5.ellipse(0, 50, 33, 33);
             };
- 
-            p5.draw = () => {
-                p5.noFill()
-                p5.square(p5.mouseX, p5.mouseY, p5.random(10, 200));
-            };
- 
-            p5.mousePressed = () => {
-                console.log("Mouse pressed");
-            }
         }
     }
-};
+}
 </script>

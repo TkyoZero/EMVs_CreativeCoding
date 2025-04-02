@@ -18,7 +18,17 @@ const router = createRouter({
       path: '/randomball',
       name: 'randomball',
       component: () => import('../components/RandomBallSketch.vue'),
-    }
+    },
+    {
+      path: '/loading',
+      name: 'loading',
+      component: () => import('../components/LoadingSketch.vue'),
+    },
+    // {
+    //   path: 'savestlye',
+    //   name: 'savestlye',
+    //   component: () => import('../components/SaveStyleSketch.vue'),
+    // }
   ],
 })
 
