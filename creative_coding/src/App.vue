@@ -11,6 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/practice/random-ball">Random Ball</RouterLink>
         <RouterLink to="/practice/loading">Loading</RouterLink>
         <RouterLink to="/task/image-filter">Image Filter</RouterLink>
+        <RouterLink to="/task/sort-image-pixels">Sort Image Pixels</RouterLink>
       </nav>
     </div>
   </header>

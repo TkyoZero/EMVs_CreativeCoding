@@ -33,6 +33,11 @@ const router = createRouter({
       path: '/task/image-filter',
       name: 'image-filter',
       component: () => import('../components/task/imageManipulation1/ImageFilterSketch.vue'),
+    },
+    {
+      path: '/task/sort-image-pixels',
+      name: 'sort-image-pixels',
+      component: () => import('../components/task/imageManipulation1/SortImagePixelsSketch.vue'),
     }
   ],
 })
