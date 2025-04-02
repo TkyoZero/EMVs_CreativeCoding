@@ -10,25 +10,25 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/demo',
+      path: '/practice/demo',
       name: 'demo',
-      component: () => import('../components/DemoSketch.vue'),
+      component: () => import('../components/Practice/DemoSketch.vue'),
     },
     {
-      path: '/randomball',
+      path: '/practice/randomball',
       name: 'randomball',
-      component: () => import('../components/RandomBallSketch.vue'),
+      component: () => import('../components/Practice/RandomBallSketch.vue'),
     },
     {
-      path: '/loading',
+      path: '/practice/loading',
       name: 'loading',
-      component: () => import('../components/LoadingSketch.vue'),
+      component: () => import('../components/Practice/LoadingSketch.vue'),
     },
-    // {
-    //   path: 'savestlye',
-    //   name: 'savestlye',
-    //   component: () => import('../components/SaveStyleSketch.vue'),
-    // }
+    {
+      path: '/practice/savestlye',
+      name: 'savestlye',
+      component: () => import('../components/Practice/SaveStyleSketch.vue'),
+    }
   ],
 })
 
