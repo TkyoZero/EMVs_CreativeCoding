@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "SaveStyleSketch",
+	name: "SaveStyle",
 	mounted() {
 		this.createCanvas();
 	},
