@@ -10,43 +10,44 @@ const router = createRouter({
 			component: HomeView,
 		},
 		{
-			path: "/sketch/demo",
+			path: "/sketches/demo",
 			name: "demo",
-			component: () => import("../components/sketch/Demo.vue"),
+			component: () => import("../components/sketches/Demo.vue"),
 		},
 		{
-			path: "/sketch/random-ball",
+			path: "/sketches/random-ball",
 			name: "random-ball",
-			component: () => import("../components/sketch/RandomBall.vue"),
+			component: () => import("../components/sketches/RandomBall.vue"),
 		},
 		{
-			path: "/sketch/loading",
+			path: "/sketches/loading",
 			name: "loading",
-			component: () => import("../components/sketch/Loading.vue"),
+			component: () => import("../components/sketches/Loading.vue"),
 		},
 		{
-			path: "/sketch/save-stlye",
-			name: "save-stlye",
-			component: () => import("../components/sketch/SaveStyle.vue"),
+			path: "/sketches/save-style",
+			name: "save-style",
+			component: () => import("../components/sketches/SaveStyle.vue"),
 		},
 		{
-			path: "/sketch/graphics",
+			path: "/sketches/graphics",
 			name: "Graphics",
-			component: () => import("../components/sketch/Graphics.vue"),
+			component: () => import("../components/sketches/Graphics.vue"),
 		},
 		{
 			path: "/task/image-filter",
 			name: "image-filter",
-			component: () =>
-				import("../components/task/imageManipulation1/ImageFilter.vue"),
+			component: () => import("../components/task/image-manipulation-1/ImageFilter.vue"),
 		},
 		{
 			path: "/task/sort-image-pixels",
 			name: "sort-image-pixels",
-			component: () =>
-				import(
-					"../components/task/imageManipulation1/SortImagePixels.vue"
-				),
+			component: () => import("../components/task/image-manipulation-1/SortImagePixels.vue"),
+		},
+		{
+			path: "/task/l-system-fractals/crystal",
+			name: "l-system-crystal",
+			component: () => import("../components/task/l-system-fractals/Crystal.vue"),
 		},
 	],
 });

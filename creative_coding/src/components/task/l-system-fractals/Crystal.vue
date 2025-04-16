@@ -1,0 +1,96 @@
+<template>
+	<div ref="canvasContainer"></div>
+</template>
+
+<script>
+import p5 from "p5";
+
+export default {
+	name: "crystal",
+	data() {
+		return {
+			p5Instance: null,
+		};
+	},
+	mounted() {
+		this.createCanvas();
+	},
+	beforeDestroy() {
+		if (this.p5Instance) {
+			this.p5Instance.remove();
+		}
+	},
+	methods: {
+		createCanvas() {
+			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer);
+		},
+		sketch(p) {
+			let angle;
+			let axiom = "F+F+F+F";
+			let sentence = axiom;
+			let len = 100;
+
+			let rules = [];
+			rules[0] = {
+				a: "F",
+				b: "FF+F++F+F",
+			};
+
+			function generate() {
+				len *= 0.7;
+				let nextSentence = "";
+				for (let i = 0; i < sentence.length; i++) {
+					let current = sentence.charAt(i);
+					let found = false;
+					for (let j = 0; j < rules.length; j++) {
+						if (current == rules[j].a) {
+							found = true;
+							nextSentence += rules[j].b;
+							break;
+						}
+					}
+					if (!found) {
+						nextSentence += current;
+					}
+				}
+				sentence = nextSentence;
+				// p.createP(sentence); // Uncomment this line if you want to display the sentence on the canvas
+				turtle();
+			}
+
+			function turtle() {
+				p.background(51);
+				p.resetMatrix();
+				p.translate(p.width / 2, p.height);
+				p.stroke(255, 100);
+				for (let i = 0; i < sentence.length; i++) {
+					let current = sentence.charAt(i);
+
+					if (current == "F") {
+						p.line(0, 0, 0, -len);
+						p.translate(0, -len);
+					} else if (current == "+") {
+						p.rotate(angle);
+					} else if (current == "-") {
+						rotate(-angle);
+					} else if (current == "[") {
+						p.push();
+					} else if (current == "]") {
+						p.pop();
+					}
+				}
+			}
+
+			p.setup = () => {
+				p.createCanvas(400, 400);
+				angle = p.radians(90);
+				p.background(51);
+				p.createP(axiom);
+				turtle();
+				let button = p.createButton("generate");
+				button.mousePressed(generate);
+			};
+		},
+	},
+};
+</script>
