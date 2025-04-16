@@ -32,6 +32,11 @@ export default {
 
 			p5.mousePressed = () => {
 				console.log("Mouse pressed");
+				if (p5.isLooping()) {
+					p5.noLoop(); // Stop the draw loop if it's running
+				} else {
+					p5.loop(); // Restart the draw loop if it's stopped
+				}
 			};
 		},
 	},

@@ -28,7 +28,10 @@ export default {
 			let angle;
 			let axiom = "F+F+F+F";
 			let sentence = axiom;
-			let len = 100;
+			let initLen = 300; // Initial length
+			let len = initLen; // Current length
+			let divideFactor = 3; // Matches original's divideFactor
+			let iteration = 0; // Track current iteration
 
 			let rules = [];
 			rules[0] = {
@@ -37,7 +40,10 @@ export default {
 			};
 
 			function generate() {
-				len *= 0.7;
+				iteration++;
+				// Calculate new length based on divideFactor and iteration
+				len = initLen / Math.pow(divideFactor, iteration);
+
 				let nextSentence = "";
 				for (let i = 0; i < sentence.length; i++) {
 					let current = sentence.charAt(i);
@@ -54,15 +60,17 @@ export default {
 					}
 				}
 				sentence = nextSentence;
-				// p.createP(sentence); // Uncomment this line if you want to display the sentence on the canvas
 				turtle();
 			}
 
 			function turtle() {
 				p.background(51);
 				p.resetMatrix();
-				p.translate(p.width / 2, p.height);
-				p.stroke(255, 100);
+				// Matches original's initTranslation logic:
+				// [sizes.width / 2 - initialLength / 2, sizes.height / 2 + initialLength / 2]
+				p.translate(p.width / 2 - initLen / 2, p.height / 2 + initLen / 2);
+				p.stroke(24, 252, 224); // #18fce0
+
 				for (let i = 0; i < sentence.length; i++) {
 					let current = sentence.charAt(i);
 
@@ -72,11 +80,7 @@ export default {
 					} else if (current == "+") {
 						p.rotate(angle);
 					} else if (current == "-") {
-						rotate(-angle);
-					} else if (current == "[") {
-						p.push();
-					} else if (current == "]") {
-						p.pop();
+						p.rotate(-angle);
 					}
 				}
 			}
@@ -85,7 +89,6 @@ export default {
 				p.createCanvas(400, 400);
 				angle = p.radians(90);
 				p.background(51);
-				p.createP(axiom);
 				turtle();
 				let button = p.createButton("generate");
 				button.mousePressed(generate);
