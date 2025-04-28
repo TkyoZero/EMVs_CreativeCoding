@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "Crystal",
+	name: "Sierpinski Arrowhead",
 	data() {
 		return {
 			p5Instance: null,
@@ -26,18 +26,17 @@ export default {
 		},
 		sketch(p) {
 			let angle;
-			let axiom = "F+F+F+F";
+			let axiom = "YF";
 			let sentence = axiom;
 			let initLen = 300; // Initial length
 			let len = initLen; // Current length
-			let divideFactor = 3;
+			let divideFactor = 2;
 			let iteration = 0; // Track current iteration
 
 			let rules = [];
-			rules[0] = {
-				a: "F",
-				b: "FF+F++F+F",
-			};
+			rules[0] = { a: "X", b: "YF+XF+Y" };
+
+			rules[1] = { a: "Y", b: "XF-YF-X" };
 
 			function generate() {
 				iteration++;
@@ -64,10 +63,15 @@ export default {
 			}
 
 			function turtle() {
+				const totalHeight = (initialLength * Math.sqrt(3)) / 2;
+
 				p.background(51);
 				p.resetMatrix();
-				p.translate(p.width / 2 - initLen / 2, p.height / 2 + initLen / 2);
-				p.stroke(24, 252, 224); // #18fce0
+				p.translate(
+					p.width / 2 - initialLength / 2,
+					p.height - (p.height - totalHeight) / 2
+				);
+				p.stroke(252, 210, 39); // #FCD227
 
 				for (let i = 0; i < sentence.length; i++) {
 					let current = sentence.charAt(i);
