@@ -49,6 +49,11 @@ const router = createRouter({
 			name: "l-system-crystal",
 			component: () => import("../components/task/l-system-fractals/Crystal.vue"),
 		},
+		{
+			path: "/task/markov-chain/TextGenerator",
+			name: "markov-chain-text-generator",
+			component: () => import("../components/task/markov-chain/TextGenerator.vue"),
+		}
 	],
 });
 

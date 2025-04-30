@@ -15,6 +15,7 @@ import { RouterLink, RouterView } from "vue-router";
 				<RouterLink to="/task/sort-image-pixels">Sort Image Pixels</RouterLink>
 				<RouterLink to="/sketches/save-style">Save Style</RouterLink>
 				<RouterLink to="/task/l-system-fractals/crystal">Crystal</RouterLink>
+				<RouterLink to="/task/markov-chain/TextGenerator">Text Generator</RouterLink>
 			</nav>
 		</div>
 	</header>
