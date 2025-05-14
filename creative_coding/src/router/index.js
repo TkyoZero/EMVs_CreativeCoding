@@ -50,9 +50,14 @@ const router = createRouter({
 			component: () => import("../components/task/l-system-fractals/Crystal.vue"),
 		},
 		{
-			path: "/task/markov-chain/TextGenerator",
+			path: "/task/markov-chain/text-generator",
 			name: "markov-chain-text-generator",
 			component: () => import("../components/task/markov-chain/TextGenerator.vue"),
+		},
+		{
+			path: "/task/game-of-life/original-ruleset",
+			name: "game-of-life-original-ruleset",
+			component: () => import("../components/task/game-of-life/OriginalRuleset.vue"),
 		}
 	],
 });
