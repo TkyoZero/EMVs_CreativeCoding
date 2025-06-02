@@ -10,14 +10,14 @@ const router = createRouter({
 			component: HomeView,
 		},
 		{
-			path: "/sketches/demo",
-			name: "demo",
-			component: () => import("../components/sketches/Demo.vue"),
-		},
-		{
 			path: "/sketches/random-ball",
 			name: "random-ball",
-			component: () => import("../components/sketches/RandomBall.vue"),
+			component: () => import("../components/task/01/RandomBall.vue"),
+		},
+		{
+			path: "/sketches/random-squares",
+			name: "random-squares",
+			component: () => import("../components/task/01/RandomSquares.vue"),
 		},
 		{
 			path: "/sketches/loading",
@@ -32,7 +32,7 @@ const router = createRouter({
 		{
 			path: "/sketches/graphics",
 			name: "Graphics",
-			component: () => import("../components/sketches/Graphics.vue"),
+			component: () => import("../components/task/01/Graphics.vue"),
 		},
 		{
 			path: "/task/image-filter",

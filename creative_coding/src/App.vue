@@ -7,10 +7,10 @@ import { RouterLink, RouterView } from "vue-router";
 		<div class="wrapper">
 			<nav>
 				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/sketches/demo">Demo</RouterLink>
 				<RouterLink to="/sketches/random-ball">Random Ball</RouterLink>
-				<RouterLink to="/sketches/loading">Loading</RouterLink>
+				<RouterLink to="/sketches/random-squares">Random Squares</RouterLink>
 				<RouterLink to="/sketches/graphics">Graphic</RouterLink>
+				<RouterLink to="/sketches/loading">Loading</RouterLink>
 				<RouterLink to="/task/image-filter">Image Filter</RouterLink>
 				<RouterLink to="/task/sort-image-pixels">Sort Image Pixels</RouterLink>
 				<RouterLink to="/sketches/save-style">Save Style</RouterLink>

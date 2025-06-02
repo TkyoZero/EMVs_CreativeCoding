@@ -42,12 +42,7 @@ export default {
 
 				// Graphics buffer drawing
 				graphics.fill(0, 0, 255);
-				graphics.ellipse(
-					p.random(graphics.width),
-					p.random(graphics.height),
-					20,
-					20
-				);
+				graphics.ellipse(p.random(graphics.width), p.random(graphics.height), 20, 20);
 
 				// Display graphics buffer
 				p.image(graphics, 100, 100);
@@ -55,6 +50,15 @@ export default {
 
 			p.mousePressed = () => {
 				graphics.clear();
+			};
+
+			p.doubleClicked = () => {
+				console.log("Mouse pressed");
+				if (p.isLooping()) {
+					p.noLoop(); // Stop the draw loop if it's running
+				} else {
+					p.loop(); // Restart the draw loop if it's stopped
+				}
 			};
 		},
 	},
