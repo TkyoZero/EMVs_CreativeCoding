@@ -49,16 +49,16 @@ export default {
 			};
 
 			p.mousePressed = () => {
-				graphics.clear();
-			};
-
-			p.doubleClicked = () => {
 				console.log("Mouse pressed");
 				if (p.isLooping()) {
 					p.noLoop(); // Stop the draw loop if it's running
 				} else {
 					p.loop(); // Restart the draw loop if it's stopped
 				}
+			};
+
+			p.doubleClicked = () => {
+				graphics.clear();
 			};
 		},
 	},

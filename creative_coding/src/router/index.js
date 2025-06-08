@@ -117,9 +117,9 @@ const router = createRouter({
 
 		// ------------------------------------ Task 06 ------------------------------------
 		{
-			path: "/task/game-of-life/original-ruleset",
+			path: "/task/06/original-ruleset",
 			name: "game-of-life-original-ruleset",
-			component: () => import("../components/task/game-of-life/OriginalRuleset.vue"),
+			component: () => import("../components/task/06/OriginalRuleset.vue"),
 		},
 	],
 });

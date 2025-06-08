@@ -100,6 +100,15 @@ export default {
 
 			// Reset board when mouse is pressed
 			p.mousePressed = () => {
+				console.log("Mouse pressed");
+				if (p.isLooping()) {
+					p.noLoop(); // Stop the draw loop if it's running
+				} else {
+					p.loop(); // Restart the draw loop if it's stopped
+				}
+			};
+
+			p.doubleClicked = () => {
 				randomizeBoard();
 			};
 

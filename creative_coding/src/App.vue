@@ -38,7 +38,7 @@ import { RouterLink, RouterView } from "vue-router";
 				<RouterLink to="/task/05/text-generator">Text Generator</RouterLink>
 
 				<!-- ---------------------------- Task 06 ---------------------------- -->
-				<RouterLink to="/task/game-of-life/original-ruleset">Original Ruleset</RouterLink>
+				<RouterLink to="/task/06/original-ruleset">Game of Life</RouterLink>
 			</nav>
 		</div>
 	</header>
