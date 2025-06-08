@@ -121,6 +121,13 @@ const router = createRouter({
 			name: "game-of-life-original-ruleset",
 			component: () => import("../components/task/06/OriginalRuleset.vue"),
 		},
+
+		// ------------------------------------ Task 07 ------------------------------------
+		{
+			path: "/task/07/mandel-brot",
+			name: "mandel-brot",
+			component: () => import("../components/task/07/MandelBrot.vue"),
+		},
 	],
 });
 

@@ -39,6 +39,9 @@ import { RouterLink, RouterView } from "vue-router";
 
 				<!-- ---------------------------- Task 06 ---------------------------- -->
 				<RouterLink to="/task/06/original-ruleset">Game of Life</RouterLink>
+
+				<!-- ---------------------------- Task 07 ---------------------------- -->
+				<RouterLink to="/task/07/mandel-brot">Mandel Brot</RouterLink>
 			</nav>
 		</div>
 	</header>
