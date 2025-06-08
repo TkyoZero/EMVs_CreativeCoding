@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "DitheringEffect",
+	name: "Dithering Effect",
 	data() {
 		return {
 			p5Instance: null,

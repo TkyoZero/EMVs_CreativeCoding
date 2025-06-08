@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "OverlayImagesSimple",
+	name: "Image Overlay",
 	data() {
 		return {
 			p5Instance: null,
