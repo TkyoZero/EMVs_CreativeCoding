@@ -110,10 +110,12 @@ const router = createRouter({
 
 		// ------------------------------------ Task 05 ------------------------------------
 		{
-			path: "/task/markov-chain/text-generator",
+			path: "/task/05/text-generator",
 			name: "markov-chain-text-generator",
-			component: () => import("../components/task/markov-chain/TextGenerator.vue"),
+			component: () => import("../components/task/05/TextGenerator.vue"),
 		},
+
+		// ------------------------------------ Task 06 ------------------------------------
 		{
 			path: "/task/game-of-life/original-ruleset",
 			name: "game-of-life-original-ruleset",

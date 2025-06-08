@@ -17,32 +17,30 @@ export default {
 	},
 	beforeDestroy() {
 		if (this.p5Instance) {
-			this.p5Instance.remove(); // Proper cleanup
+			this.p5Instance.remove();
 		}
 	},
 	methods: {
 		createCanvas() {
-			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer); // Fixed variable name
+			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer);
 		},
 		sketch(p) {
 			let myData;
-			let markovChain; // Make chain accessible globally
+			let markovChain;
 
 			p.preload = () => {
-				myData = p.loadStrings("/test.txt"); // Load text file
+				myData = p.loadStrings("/test.txt");
 			};
 
 			p.setup = () => {
 				p.createCanvas(400, 400);
 				p.background(200);
 
-				// 1. Flatten all words
 				const allWords = myData.flatMap((sentence) =>
 					sentence.split(/\s+/).filter((w) => w.length > 0)
 				);
 
-				// 2. Build Markov Chain (using Map)
-				markovChain = new Map(); // Initialize globally
+				markovChain = new Map();
 
 				for (let i = 0; i < allWords.length - 1; i++) {
 					const currentWord = allWords[i];
@@ -54,32 +52,28 @@ export default {
 					markovChain.get(currentWord).push(nextWord);
 				}
 
-				// 3. Add generate button
 				const button = p.createButton("generate");
-				button.mousePressed(generateText); // Pass function, not chain
+				button.mousePressed(generateText);
 			};
 
-			// 4. Text generation function
 			function generateText() {
 				if (!markovChain || markovChain.size === 0) return;
 
-				// Start with a random word
 				const keys = Array.from(markovChain.keys());
 				let currentWord = p.random(keys);
 				let result = [currentWord];
 
-				// Generate 20 words (adjust as needed)
 				for (let i = 0; i < 20; i++) {
 					const nextWords = markovChain.get(currentWord);
 					if (!nextWords || nextWords.length === 0) break;
 
-					currentWord = p.random(nextWords); // Pick random follower
+					currentWord = p.random(nextWords);
 					result.push(currentWord);
 				}
 
 				console.log(result.join(" "));
 				p.background(200);
-				p.text(result.join(" "), 40, 40, 300, 360); // Display on canvas
+				p.text(result.join(" "), 40, 40, 300, 360);
 			}
 		},
 	},
