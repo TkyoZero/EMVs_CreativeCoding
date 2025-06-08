@@ -19,6 +19,7 @@ const router = createRouter({
 			name: "save-style",
 			component: () => import("../components/sketches/SaveStyle.vue"),
 		},
+
 		// ------------------------------------ Task 01 ------------------------------------
 		{
 			path: "/task/01/random-ball",
@@ -35,6 +36,7 @@ const router = createRouter({
 			name: "Graphics",
 			component: () => import("../components/task/01/Graphics.vue"),
 		},
+
 		// ------------------------------------ Task 02 ------------------------------------
 		{
 			path: "/task/02/image-manipulation",
@@ -66,6 +68,7 @@ const router = createRouter({
 			name: "image-overlay",
 			component: () => import("../components/task/02/ImageOverlay.vue"),
 		},
+
 		// ------------------------------------ Task 03 ------------------------------------
 		{
 			path: "/task/03/pipe-shape",
@@ -85,10 +88,27 @@ const router = createRouter({
 
 		// ------------------------------------ Task 04 ------------------------------------
 		{
-			path: "/task/l-system-fractals/crystal",
+			path: "/task/04/crystal",
 			name: "l-system-crystal",
-			component: () => import("../components/task/l-system-fractals/Crystal.vue"),
+			component: () => import("../components/task/04/Crystal.vue"),
 		},
+		{
+			path: "/task/04/sierpinski-arrowhead",
+			name: "l-system-sierpinski-arrowhead",
+			component: () => import("../components/task/04/SierpinskiArrowhead.vue"),
+		},
+		{
+			path: "/task/04/fern",
+			name: "l-system-fern",
+			component: () => import("../components/task/04/Fern.vue"),
+		},
+		{
+			path: "/task/04/board",
+			name: "l-system-board",
+			component: () => import("../components/task/04/Board.vue"),
+		},
+
+		// ------------------------------------ Task 05 ------------------------------------
 		{
 			path: "/task/markov-chain/text-generator",
 			name: "markov-chain-text-generator",

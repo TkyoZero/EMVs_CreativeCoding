@@ -63,15 +63,10 @@ export default {
 			}
 
 			function turtle() {
-				const totalHeight = (initialLength * Math.sqrt(3)) / 2;
-
 				p.background(51);
 				p.resetMatrix();
-				p.translate(
-					p.width / 2 - initialLength / 2,
-					p.height - (p.height - totalHeight) / 2
-				);
-				p.stroke(252, 210, 39); // #FCD227
+				p.translate(p.width / 2 - initLen / 2, p.height / 2 + initLen / 2);
+				p.stroke(252, 210, 39); // #18fce0
 
 				for (let i = 0; i < sentence.length; i++) {
 					let current = sentence.charAt(i);
@@ -89,7 +84,7 @@ export default {
 
 			p.setup = () => {
 				p.createCanvas(400, 400);
-				angle = p.radians(90);
+				angle = p.radians(60);
 				p.background(51);
 				turtle();
 				let button = p.createButton("generate");

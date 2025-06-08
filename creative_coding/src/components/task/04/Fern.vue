@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "Crystal",
+	name: "Fern",
 	data() {
 		return {
 			p5Instance: null,
@@ -26,69 +26,73 @@ export default {
 		},
 		sketch(p) {
 			let angle;
-			let axiom = "F+F+F+F";
+			let axiom = "Y";
 			let sentence = axiom;
-			let initLen = 300; // Initial length
-			let len = initLen; // Current length
-			let divideFactor = 3;
-			let iteration = 0; // Track current iteration
+			const initLen = 300;
+			let len = initLen;
+			const divideFactor = 2.05;
+			let iteration = 0;
 
-			let rules = [];
-			rules[0] = {
-				a: "F",
-				b: "FF+F++F+F",
-			};
+			const rules = [
+				{ a: "X", b: "X[-FFF][+FFF]FX" },
+				{ a: "Y", b: "YFX[+Y][-Y]" },
+			];
 
 			function generate() {
 				iteration++;
-				// Calculate new length based on divideFactor and iteration
 				len = initLen / Math.pow(divideFactor, iteration);
 
-				let nextSentence = "";
+				let next = "";
 				for (let i = 0; i < sentence.length; i++) {
-					let current = sentence.charAt(i);
-					let found = false;
-					for (let j = 0; j < rules.length; j++) {
-						if (current == rules[j].a) {
-							found = true;
-							nextSentence += rules[j].b;
+					let c = sentence.charAt(i);
+					let replaced = false;
+					for (let rule of rules) {
+						if (c === rule.a) {
+							next += rule.b;
+							replaced = true;
 							break;
 						}
 					}
-					if (!found) {
-						nextSentence += current;
-					}
+					if (!replaced) next += c;
 				}
-				sentence = nextSentence;
+				sentence = next;
 				turtle();
 			}
 
 			function turtle() {
 				p.background(51);
 				p.resetMatrix();
-				p.translate(p.width / 2 - initLen / 2, p.height / 2 + initLen / 2);
-				p.stroke(24, 252, 224); // #18fce0
 
+				// Translation
+				p.translate(p.width / 2, p.height);
+
+				p.stroke(0, 255, 0);
+				p.strokeWeight(iteration < 4 ? 2 : 1);
 				for (let i = 0; i < sentence.length; i++) {
-					let current = sentence.charAt(i);
+					let c = sentence.charAt(i);
 
-					if (current == "F") {
+					if (c === "F") {
 						p.line(0, 0, 0, -len);
 						p.translate(0, -len);
-					} else if (current == "+") {
+					} else if (c === "+") {
 						p.rotate(angle);
-					} else if (current == "-") {
+					} else if (c === "-") {
 						p.rotate(-angle);
+					} else if (c === "[") {
+						p.push();
+					} else if (c === "]") {
+						p.pop();
 					}
 				}
 			}
 
 			p.setup = () => {
 				p.createCanvas(400, 400);
-				angle = p.radians(90);
+				angle = p.radians(25.7);
 				p.background(51);
 				turtle();
-				let button = p.createButton("generate");
+
+				const button = p.createButton("generate");
 				button.mousePressed(generate);
 			};
 		},
