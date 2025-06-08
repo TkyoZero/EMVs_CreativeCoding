@@ -61,6 +61,11 @@ const router = createRouter({
 			name: "image-resize",
 			component: () => import("../components/task/02/ImageResize.vue"),
 		},
+		{
+			path: "/task/02/image-overlay",
+			name: "image-overlay",
+			component: () => import("../components/task/02/ImageOverlay.vue"),
+		},
 		// ------------------------------------ Task 03 ------------------------------------
 		{
 			path: "/task/l-system-fractals/crystal",

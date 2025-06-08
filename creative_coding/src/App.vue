@@ -19,6 +19,7 @@ import { RouterLink, RouterView } from "vue-router";
 				<RouterLink to="/task/02/dithering-effect">Dithering Effect</RouterLink>
 				<RouterLink to="/task/02/glitch-effect">Glitch Effect</RouterLink>
 				<RouterLink to="/task/02/image-resize">Image Resize</RouterLink>
+				<RouterLink to="/task/02/image-overlay">Image Overlay</RouterLink>
 				<!-- ---------------------------- Task 03 ---------------------------- -->
 				<RouterLink to="/task/l-system-fractals/crystal">Crystal</RouterLink>
 				<RouterLink to="/task/markov-chain/text-generator">Text Generator</RouterLink>
