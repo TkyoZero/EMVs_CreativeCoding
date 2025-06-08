@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "Glichth Effect",
+	name: "Image Resize",
 	data() {
 		return {
 			p5Instance: null,
@@ -34,24 +34,28 @@ export default {
 			};
 
 			p.setup = () => {
-				p.createCanvas(400, 400);
-				p.image(img, 0, 0, 400, 400);
+				p.createCanvas(600, 400);
+				p.imageMode(p.CENTER);
+			};
+
+			p.draw = () => {
+				p.background(220);
+
+				let scale = p.map(p.mouseX, 0, p.width, 0.2, 2); // Scale between 0.2x and 2x
+				let w = img.width * scale;
+				let h = img.height * scale;
+
+				p.image(img, p.width / 2, p.height / 2, w, h);
 			};
 
 			p.mousePressed = () => {
-				p.image(img, 0, 0, 400, 400);
-
-				// shift random horizontal lines
-				for (let i = 0; i < 10; i++) {
-					let y = p.floor(p.random(p.height));
-					let h = p.floor(p.random(5, 20));
-					let offset = p.floor(p.random(-30, 30));
-					let strip = img.get(0, y, img.width, h);
-					p.image(strip, offset, y);
+				console.log("Mouse pressed");
+				if (p.isLooping()) {
+					p.noLoop(); // Stop the draw loop if it's running
+				} else {
+					p.loop(); // Restart the draw loop if it's stopped
 				}
 			};
-
-			p.draw = () => {};
 		},
 	},
 };

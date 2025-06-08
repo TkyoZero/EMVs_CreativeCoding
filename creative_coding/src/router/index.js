@@ -56,6 +56,11 @@ const router = createRouter({
 			name: "glitch-effect",
 			component: () => import("../components/task/02/GlitchEffect.vue"),
 		},
+		{
+			path: "/task/02/image-resize",
+			name: "image-resize",
+			component: () => import("../components/task/02/ImageResize.vue"),
+		},
 		// ------------------------------------ Task 03 ------------------------------------
 		{
 			path: "/task/l-system-fractals/crystal",
