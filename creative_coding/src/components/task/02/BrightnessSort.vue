@@ -6,36 +6,36 @@
 import p5 from "p5";
 
 export default {
-	name: "BrightnessSort",
+	name: "Brightness Sort",
 	data() {
 		return {
-			p5: null,
+			p5Instance: null,
 		};
 	},
 	mounted() {
 		this.createCanvas();
 	},
 	beforeDestroy() {
-		if (this.p5) {
-			this.p5.remove();
+		if (this.p5Instance) {
+			this.p5Instance.remove();
 		}
 	},
 	methods: {
 		createCanvas() {
-			this.p5 = new p5(this.sketch, this.$refs.canvasContainer);
+			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer);
 		},
-		sketch(p5) {
+		sketch(p) {
 			let img;
 
-			p5.preload = () => {
-				img = p5.loadImage(
+			p.preload = () => {
+				img = p.loadImage(
 					"https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
 				);
 			};
 
-			p5.setup = () => {
-				p5.createCanvas(img.width, img.height);
-				p5.noLoop(); // Only draw once (no animation needed)
+			p.setup = () => {
+				p.createCanvas(400, 400);
+				p.noLoop(); // Only draw once (no animation needed)
 
 				img.loadPixels();
 
@@ -61,8 +61,9 @@ export default {
 					img.pixels[idx + 3] = pixelData[i].a;
 				}
 
+				p.image(img, 0, 0, 200, 200);
 				img.updatePixels();
-				p5.image(img, 0, 0);
+				p.image(img, 200, 0, 200, 200);
 			};
 		},
 	},

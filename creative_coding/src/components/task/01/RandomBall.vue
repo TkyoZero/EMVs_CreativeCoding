@@ -11,7 +11,7 @@ const Gridsize = 50;
 const color = ["#ECECEC", "#656262", "#110000"];
 
 export default {
-	name: "RandomBall",
+	name: "Random Ball",
 	mounted() {
 		this.createCanvas();
 	},

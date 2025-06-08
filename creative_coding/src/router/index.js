@@ -10,16 +10,6 @@ const router = createRouter({
 			component: HomeView,
 		},
 		{
-			path: "/sketches/random-ball",
-			name: "random-ball",
-			component: () => import("../components/task/01/RandomBall.vue"),
-		},
-		{
-			path: "/sketches/random-squares",
-			name: "random-squares",
-			component: () => import("../components/task/01/RandomSquares.vue"),
-		},
-		{
 			path: "/sketches/loading",
 			name: "loading",
 			component: () => import("../components/sketches/Loading.vue"),
@@ -29,21 +19,44 @@ const router = createRouter({
 			name: "save-style",
 			component: () => import("../components/sketches/SaveStyle.vue"),
 		},
+		// ------------------------------------ Task 01 ------------------------------------
 		{
-			path: "/sketches/graphics",
+			path: "/task/01/random-ball",
+			name: "random-ball",
+			component: () => import("../components/task/01/RandomBall.vue"),
+		},
+		{
+			path: "/task/01/random-squares",
+			name: "random-squares",
+			component: () => import("../components/task/01/RandomSquares.vue"),
+		},
+		{
+			path: "/task/01/graphics",
 			name: "Graphics",
 			component: () => import("../components/task/01/Graphics.vue"),
 		},
+		// ------------------------------------ Task 02 ------------------------------------
 		{
-			path: "/task/image-filter",
-			name: "image-filter",
-			component: () => import("../components/task/image-manipulation-1/ImageFilter.vue"),
+			path: "/task/02/image-manipulation",
+			name: "image-manipulation",
+			component: () => import("../components/task/02/ImageManipulation.vue"),
 		},
 		{
-			path: "/task/sort-image-pixels",
-			name: "sort-image-pixels",
-			component: () => import("../components/task/image-manipulation-1/SortImagePixels.vue"),
+			path: "/task/02/brightness-sort",
+			name: "brightness-sort",
+			component: () => import("../components/task/02/BrightnessSort.vue"),
 		},
+		{
+			path: "/task/02/dithering-effect",
+			name: "dithering-effect",
+			component: () => import("../components/task/02/DitheringEffect.vue"),
+		},
+		{
+			path: "/task/02/glitch-effect",
+			name: "glitch-effect",
+			component: () => import("../components/task/02/GlitchEffect.vue"),
+		},
+		// ------------------------------------ Task 03 ------------------------------------
 		{
 			path: "/task/l-system-fractals/crystal",
 			name: "l-system-crystal",
@@ -58,7 +71,7 @@ const router = createRouter({
 			path: "/task/game-of-life/original-ruleset",
 			name: "game-of-life-original-ruleset",
 			component: () => import("../components/task/game-of-life/OriginalRuleset.vue"),
-		}
+		},
 	],
 });
 

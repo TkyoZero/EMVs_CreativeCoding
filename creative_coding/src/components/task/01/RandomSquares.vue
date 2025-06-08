@@ -6,7 +6,7 @@
 import p5 from "p5";
 
 export default {
-	name: "Demo",
+	name: "Random Squares",
 	mounted() {
 		this.createCanvas();
 	},
