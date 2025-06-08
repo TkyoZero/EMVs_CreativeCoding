@@ -68,6 +68,23 @@ const router = createRouter({
 		},
 		// ------------------------------------ Task 03 ------------------------------------
 		{
+			path: "/task/03/pipe-shape",
+			name: "pipe-shape",
+			component: () => import("../components/task/03/PipeShape.vue"),
+		},
+		{
+			path: "/task/03/circle-packing",
+			name: "circle-packing",
+			component: () => import("../components/task/03/CirclePacking.vue"),
+		},
+		{
+			path: "/task/03/abstract-algorithm",
+			name: "abstract-algorithm",
+			component: () => import("../components/task/03/AbstractAlgorithm.vue"),
+		},
+
+		// ------------------------------------ Task 04 ------------------------------------
+		{
 			path: "/task/l-system-fractals/crystal",
 			name: "l-system-crystal",
 			component: () => import("../components/task/l-system-fractals/Crystal.vue"),

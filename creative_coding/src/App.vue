@@ -21,6 +21,11 @@ import { RouterLink, RouterView } from "vue-router";
 				<RouterLink to="/task/02/image-resize">Image Resize</RouterLink>
 				<RouterLink to="/task/02/image-overlay">Image Overlay</RouterLink>
 				<!-- ---------------------------- Task 03 ---------------------------- -->
+				<RouterLink to="/task/03/pipe-shape">Pipe Shape</RouterLink>
+				<RouterLink to="/task/03/circle-packing">Circle Packing</RouterLink>
+				<RouterLink to="/task/03/abstract-algorithm">Abstract Algoritm</RouterLink>
+				<!-- ---------------------------- Task 04 ---------------------------- -->
+
 				<RouterLink to="/task/l-system-fractals/crystal">Crystal</RouterLink>
 				<RouterLink to="/task/markov-chain/text-generator">Text Generator</RouterLink>
 				<RouterLink to="/task/game-of-life/original-ruleset">Original Ruleset</RouterLink>
