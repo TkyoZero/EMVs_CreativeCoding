@@ -25,24 +25,24 @@ export default {
 			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer);
 		},
 		sketch(p) {
-			p5.setup = () => {
-				p5.createCanvas(400, 400);
-				p5.background(255);
+			p.setup = () => {
+				p.createCanvas(400, 400);
+				p.background(255);
 
-				p5.ellipse(0, 50, 33, 33);
+				p.ellipse(0, 50, 33, 33);
 
-				p5.push(); // Start a new drawing state
-				p5.translate(50, 0);
-				p5.strokeWeight(10);
-				p5.fill(204, 153, 0);
-				p5.ellipse(33, 50, 33, 33);
-				p5.pop(); // Restore original state
+				p.push(); // Start a new drawing state
+				p.translate(50, 0);
+				p.strokeWeight(10);
+				p.fill(204, 153, 0);
+				p.ellipse(33, 50, 33, 33);
+				p.pop(); // Restore original state
 
-				p5.ellipse(100, 50, 33, 33);
+				p.ellipse(100, 50, 33, 33);
 
-				p5.translate(0, 50);
+				p.translate(0, 50);
 
-				p5.ellipse(0, 50, 33, 33);
+				p.ellipse(0, 50, 33, 33);
 			};
 		},
 	},
