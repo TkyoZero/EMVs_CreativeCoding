@@ -12,7 +12,7 @@ const dropdowns = [
 	{
 		title: "Sketches",
 		items: [
-			{ label: "Loading", link: "/sketches/loading" },
+			{ label: "Loading", link: "/" },
 			{ label: "Save Style", link: "/sketches/save-style" },
 		],
 	},
