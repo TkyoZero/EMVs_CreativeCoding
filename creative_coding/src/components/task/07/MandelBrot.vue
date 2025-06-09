@@ -62,7 +62,6 @@ export default {
 
 				for (let x = 0; x < canvasSize; x++) {
 					for (let y = 0; y < canvasSize; y++) {
-						// Convert screen to complex plane
 						let uvx = (x / canvasSize) * 4.0 - 2.0;
 						let uvy = (y / canvasSize) * 4.0 - 2.0;
 

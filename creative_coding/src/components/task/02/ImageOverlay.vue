@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -28,9 +28,7 @@ export default {
 			let img1, img2;
 
 			p.preload = () => {
-				img1 = p.loadImage(
-					"https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
-				);
+				img1 = p.loadImage("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg");
 				img2 = p.loadImage(
 					"https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg"
 				);
@@ -46,10 +44,9 @@ export default {
 				const imgWidth = 400;
 				const imgHeight = 400;
 
-				// Draw both images at top-left corner (0, 0)
 				p.image(img1, 0, 0, imgWidth, imgHeight);
 
-				p.tint(255, 150); // add transparency to second image
+				p.tint(255, 150);
 				p.image(img2, 0, 0, imgWidth, imgHeight);
 
 				p.noTint();

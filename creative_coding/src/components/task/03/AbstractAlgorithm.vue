@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -38,7 +38,6 @@ export default {
 				p.fill(0, 0, 0, 0.08);
 				p.rect(0, 0, p.width, p.height);
 
-				// draw colored circle
 				p.noFill();
 				p.stroke(hueValue, 100, 100);
 				hueValue = (hueValue + 1) % 360;
@@ -47,12 +46,12 @@ export default {
 				p.circle(p.mouseX, p.mouseY, size);
 			};
 
-			p.mousePressed = () => {
+			p.doubleClicked = () => {
 				console.log("Mouse pressed");
 				if (p.isLooping()) {
-					p.noLoop(); // Stop the draw loop if it's running
+					p.noLoop();
 				} else {
-					p.loop(); // Restart the draw loop if it's stopped
+					p.loop();
 				}
 			};
 		},

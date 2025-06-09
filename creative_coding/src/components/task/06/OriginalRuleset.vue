@@ -38,7 +38,6 @@ export default {
 				columnCount = p.floor(p.width / cellSize);
 				rowCount = p.floor(p.height / cellSize);
 
-				// Initialize cells arrays
 				for (let i = 0; i < columnCount; i++) {
 					currentCells[i] = [];
 					nextCells[i] = [];
@@ -54,26 +53,21 @@ export default {
 			p.draw = () => {
 				p.background(255);
 
-				// Draw grid
 				for (let column = 0; column < columnCount; column++) {
 					for (let row = 0; row < rowCount; row++) {
-						// Get cell value (0 or 1)
 						let cell = currentCells[column][row];
 
-						// Convert cell value to get black (0) for alive or white (255) for dead
 						p.fill((1 - cell) * 255);
 						p.stroke(cell * 255);
 						p.rect(column * cellSize, row * cellSize, cellSize, cellSize);
 					}
 				}
 
-				// Compute next generation
 				for (let column = 0; column < columnCount; column++) {
 					for (let row = 0; row < rowCount; row++) {
 						let neighbors = countNeighbors(currentCells, column, row);
 						let state = currentCells[column][row];
 
-						// Apply Conway's Game of Life rules
 						if (state === 0 && neighbors === 3) {
 							nextCells[column][row] = 1;
 						} else if (state === 1 && (neighbors < 2 || neighbors > 3)) {
@@ -84,32 +78,28 @@ export default {
 					}
 				}
 
-				// Swap current and next generation
 				[currentCells, nextCells] = [nextCells, currentCells];
 			};
 
-			// Fill board randomly
 			function randomizeBoard() {
 				for (let i = 0; i < columnCount; i++) {
 					for (let j = 0; j < rowCount; j++) {
-						// Randomly select value of either 0 (dead) or 1 (alive)
 						currentCells[i][j] = p.random([0, 1]);
 					}
 				}
 			}
 
-			// Reset board when mouse is pressed
 			p.mousePressed = () => {
-				console.log("Mouse pressed");
-				if (p.isLooping()) {
-					p.noLoop(); // Stop the draw loop if it's running
-				} else {
-					p.loop(); // Restart the draw loop if it's stopped
-				}
+				randomizeBoard();
 			};
 
 			p.doubleClicked = () => {
-				randomizeBoard();
+				console.log("Mouse pressed");
+				if (p.isLooping()) {
+					p.noLoop();
+				} else {
+					p.loop();
+				}
 			};
 
 			function countNeighbors(grid, x, y) {

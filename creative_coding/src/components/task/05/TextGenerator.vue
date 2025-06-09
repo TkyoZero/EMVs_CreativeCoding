@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -36,9 +36,7 @@ export default {
 				p.createCanvas(400, 400);
 				p.background(200);
 
-				const allWords = myData.flatMap((sentence) =>
-					sentence.split(/\s+/).filter((w) => w.length > 0)
-				);
+				const allWords = myData.flatMap((sentence) => sentence.split(/\s+/).filter((w) => w.length > 0));
 
 				markovChain = new Map();
 

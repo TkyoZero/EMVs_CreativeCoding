@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -25,9 +25,7 @@ export default {
 			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer);
 		},
 		sketch(p) {
-			p.setup = () => {};
-
-			p.draw = () => {};
+			s;
 		},
 	},
 };

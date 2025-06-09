@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -28,9 +28,7 @@ export default {
 			let img;
 
 			p.preload = () => {
-				img = p.loadImage(
-					"https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
-				);
+				img = p.loadImage("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg");
 			};
 
 			p.setup = () => {
@@ -38,10 +36,9 @@ export default {
 				p.image(img, 0, 0, 400, 400);
 			};
 
-			p.mousePressed = () => {
+			p.doubleClicked = () => {
 				p.image(img, 0, 0, 400, 400);
 
-				// shift random horizontal lines
 				for (let i = 0; i < 10; i++) {
 					let y = p.floor(p.random(p.height));
 					let h = p.floor(p.random(5, 20));

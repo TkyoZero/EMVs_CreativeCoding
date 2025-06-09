@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -63,7 +63,6 @@ export default {
 				p.background(51);
 				p.resetMatrix();
 
-				// Translation
 				p.translate(p.width / 2, p.height);
 
 				p.stroke(0, 255, 0);

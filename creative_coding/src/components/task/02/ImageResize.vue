@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -28,9 +28,7 @@ export default {
 			let img;
 
 			p.preload = () => {
-				img = p.loadImage(
-					"https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
-				);
+				img = p.loadImage("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg");
 			};
 
 			p.setup = () => {
@@ -41,19 +39,19 @@ export default {
 			p.draw = () => {
 				p.background(220);
 
-				let scale = p.map(p.mouseX, 0, p.width, 0.2, 2); // Scale between 0.2x and 2x
+				let scale = p.map(p.mouseX, 0, p.width, 0.2, 2);
 				let w = img.width * scale;
 				let h = img.height * scale;
 
 				p.image(img, p.width / 2, p.height / 2, w, h);
 			};
 
-			p.mousePressed = () => {
+			p.doubleClicked = () => {
 				console.log("Mouse pressed");
 				if (p.isLooping()) {
-					p.noLoop(); // Stop the draw loop if it's running
+					p.noLoop();
 				} else {
-					p.loop(); // Restart the draw loop if it's stopped
+					p.loop();
 				}
 			};
 		},

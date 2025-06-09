@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -100,7 +100,7 @@ export default {
 				}
 			}
 
-			p.mousePressed = () => {
+			p.doubleClicked = () => {
 				p.background(255);
 				generateCircles();
 				drawAllCircles();

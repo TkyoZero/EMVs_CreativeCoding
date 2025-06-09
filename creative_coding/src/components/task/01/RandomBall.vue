@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p) {
 			this.p.remove();
 		}
@@ -33,11 +33,7 @@ export default {
 					for (let j = 0; j < row; j++) {
 						p.fill(color[p.random([0, 1, 2])]);
 						p.noStroke();
-						p.circle(
-							i * Gridsize,
-							j * Gridsize,
-							p.random(15, 60)
-						);
+						p.circle(i * Gridsize, j * Gridsize, p.random(15, 60));
 					}
 				}
 			};

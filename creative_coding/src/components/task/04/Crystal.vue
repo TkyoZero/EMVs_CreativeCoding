@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -28,10 +28,10 @@ export default {
 			let angle;
 			let axiom = "F+F+F+F";
 			let sentence = axiom;
-			let initLen = 300; // Initial length
-			let len = initLen; // Current length
+			let initLen = 300;
+			let len = initLen;
 			let divideFactor = 3;
-			let iteration = 0; // Track current iteration
+			let iteration = 0;
 
 			let rules = [];
 			rules[0] = {
@@ -41,7 +41,6 @@ export default {
 
 			function generate() {
 				iteration++;
-				// Calculate new length based on divideFactor and iteration
 				len = initLen / Math.pow(divideFactor, iteration);
 
 				let nextSentence = "";

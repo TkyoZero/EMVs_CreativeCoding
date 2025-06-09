@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -53,7 +53,6 @@ export default {
 			};
 
 			p.draw = () => {
-				// slowly follow the mouse
 				centerX += (p.mouseX - centerX) * mouseAttraction;
 				centerY += (p.mouseY - centerY) * mouseAttraction;
 
@@ -61,11 +60,9 @@ export default {
 					x[i] += p.random(-stepSize, stepSize);
 					y[i] += p.random(-stepSize, stepSize);
 
-					// draw tiny points
 					p.ellipse(x[i] + centerX, y[i] + centerY, 0.01, 0.01);
 				}
 
-				// draw smooth shape
 				p.beginShape();
 				p.curveVertex(x[0] + centerX, y[0] + centerY);
 
@@ -74,18 +71,15 @@ export default {
 				}
 
 				p.curveVertex(x[0] + centerX, y[0] + centerY);
-				p.curveVertex(
-					x[amountOfFormPoints - 1] + centerX,
-					y[amountOfFormPoints - 1] + centerY
-				);
+				p.curveVertex(x[amountOfFormPoints - 1] + centerX, y[amountOfFormPoints - 1] + centerY);
 				p.endShape();
 
-				p.mousePressed = () => {
+				p.doubleClicked = () => {
 					console.log("Mouse pressed");
 					if (p.isLooping()) {
-						p.noLoop(); // Stop the draw loop if it's running
+						p.noLoop();
 					} else {
-						p.loop(); // Restart the draw loop if it's stopped
+						p.loop();
 					}
 				};
 			};

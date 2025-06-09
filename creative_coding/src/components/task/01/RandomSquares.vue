@@ -10,7 +10,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p) {
 			this.p.remove();
 		}
@@ -30,12 +30,12 @@ export default {
 				p.square(p.mouseX, p.mouseY, p.random(10, 200));
 			};
 
-			p.mousePressed = () => {
+			p.doubleClicked = () => {
 				console.log("Mouse pressed");
 				if (p.isLooping()) {
-					p.noLoop(); // Stop the draw loop if it's running
+					p.noLoop();
 				} else {
-					p.loop(); // Restart the draw loop if it's stopped
+					p.loop();
 				}
 			};
 		},

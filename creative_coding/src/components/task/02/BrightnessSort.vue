@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.createCanvas();
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		if (this.p5Instance) {
 			this.p5Instance.remove();
 		}
@@ -28,18 +28,15 @@ export default {
 			let img;
 
 			p.preload = () => {
-				img = p.loadImage(
-					"https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
-				);
+				img = p.loadImage("https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg");
 			};
 
 			p.setup = () => {
-				p.createCanvas(400, 400);
-				p.noLoop(); // Only draw once (no animation needed)
+				p.createCanvas(800, 800);
+				p.noLoop();
 
 				img.loadPixels();
 
-				// Extract pixels into an array
 				let pixelData = [];
 				for (let i = 0; i < img.pixels.length; i += 4) {
 					const r = img.pixels[i];
@@ -49,10 +46,8 @@ export default {
 					pixelData.push({ r, g, b, a, brightness: (r + g + b) / 3 });
 				}
 
-				// Sort by brightness
 				pixelData.sort((a, b) => a.brightness - b.brightness);
 
-				// Reapply sorted pixels
 				for (let i = 0; i < pixelData.length; i++) {
 					const idx = i * 4;
 					img.pixels[idx] = pixelData[i].r;
@@ -61,9 +56,9 @@ export default {
 					img.pixels[idx + 3] = pixelData[i].a;
 				}
 
-				p.image(img, 0, 0, 200, 200);
+				p.image(img, 0, 0, 400, 400);
 				img.updatePixels();
-				p.image(img, 200, 0, 200, 200);
+				p.image(img, 400, 0, 400, 400);
 			};
 		},
 	},

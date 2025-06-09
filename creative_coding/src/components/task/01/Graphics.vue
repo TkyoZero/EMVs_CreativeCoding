@@ -17,12 +17,12 @@ export default {
 	},
 	beforeDestroy() {
 		if (this.p5Instance) {
-			this.p5Instance.remove(); // Proper cleanup
+			this.p5Instance.remove();
 		}
 	},
 	methods: {
 		createCanvas() {
-			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer); // Fixed variable name
+			this.p5Instance = new p5(this.sketch, this.$refs.canvasContainer);
 		},
 		sketch(p) {
 			let graphics;
@@ -30,35 +30,32 @@ export default {
 			p.setup = () => {
 				p.createCanvas(400, 400);
 				graphics = p.createGraphics(200, 200);
-				p.noStroke(); // Apply globally for cleaner shapes
+				p.noStroke();
 			};
 
 			p.draw = () => {
 				p.background(220);
 
-				// Main canvas drawing
 				p.fill(255, 0, 0);
 				p.rect(50, 50, 100, 100);
 
-				// Graphics buffer drawing
 				graphics.fill(0, 0, 255);
 				graphics.ellipse(p.random(graphics.width), p.random(graphics.height), 20, 20);
 
-				// Display graphics buffer
 				p.image(graphics, 100, 100);
 			};
 
 			p.mousePressed = () => {
-				console.log("Mouse pressed");
-				if (p.isLooping()) {
-					p.noLoop(); // Stop the draw loop if it's running
-				} else {
-					p.loop(); // Restart the draw loop if it's stopped
-				}
+				graphics.clear();
 			};
 
 			p.doubleClicked = () => {
-				graphics.clear();
+				console.log("Mouse pressed");
+				if (p.isLooping()) {
+					p.noLoop();
+				} else {
+					p.loop();
+				}
 			};
 		},
 	},
