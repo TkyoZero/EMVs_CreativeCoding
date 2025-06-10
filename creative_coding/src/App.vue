@@ -6,12 +6,16 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-	<Header />
-	<NavBar />
-	<main class="font-display bg-blue-200">
-		<div class="flex justify-center py-20">
-			<RouterView />
-		</div>
-	</main>
-	<Footer />
+	<div class="flex flex-col min-h-screen">
+		<Header />
+		<NavBar />
+
+		<main class="flex-grow font-display bg-blue-200">
+			<div class="flex justify-center py-20">
+				<RouterView />
+			</div>
+		</main>
+
+		<Footer />
+	</div>
 </template>
